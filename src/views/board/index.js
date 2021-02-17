@@ -5,8 +5,9 @@ import {
   shuffle,
   checkCorrectPositionById,
   checkCorrectPatternById,
+  getRandomPattern,
 } from '../../utils';
-import { CORRECT_PATTERN, EMPTY_PATTER } from '../../constants';
+import { EMPTY_PATTER } from '../../constants';
 import Feedback from '../feedback';
 import { useHistory } from 'react-router-dom';
 
@@ -17,6 +18,7 @@ const Board = ({ name }) => {
   const [timer, setTimer] = useState(null);
   const [countdown, setCountdown] = useState(null);
   const [restart, setRestart] = useState(10);
+  const [correctPattern, setCorrectPattern ] = useState([]) 
   const history = useHistory();
 
   useEffect(() => {
@@ -34,10 +36,15 @@ const Board = ({ name }) => {
   }, [restart]);
 
   const restartGame = () => {
-    setPainFilled(shuffle(CORRECT_PATTERN));
     setPaintEmpty(EMPTY_PATTER);
     setCount(0);
     setRestart(10);
+
+    const pattern = getRandomPattern()
+
+    setPainFilled(shuffle(pattern))
+    setCorrectPattern(pattern)
+
   };
 
   const [dragging, setDragging] = useState(null);
@@ -109,17 +116,19 @@ const Board = ({ name }) => {
   const endRearrange = () => setDragging(null);
 
   const checkPatternById = (array) => {
-    if (checkCorrectPatternById(array, CORRECT_PATTERN)) {
+    if (checkCorrectPatternById(array, correctPattern)) {
       setTimer(clearInterval(timer));
       startCountDown();
     }
   };
 
   const checkCorrectMove = (item, index) => {
-    if (!checkCorrectPositionById(item, index, CORRECT_PATTERN)) {
+    if (!checkCorrectPositionById(item, index, correctPattern)) {
       setCount((time) => time + 10);
     }
   };
+
+  console.log(paintFilled, correctPattern)
 
   return (
     <>

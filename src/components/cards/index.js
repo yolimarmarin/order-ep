@@ -28,7 +28,8 @@ const FilledCard = ({ image, id, onMouseDown }) => {
 
   return (
     <div ref={dragRef} style={{ opacity }} className="card-filled" onMouseDown={onMouseDown}>
-      <img src={image} />
+      {/*<img src={image} />*/}
+      {image}
     </div>
   );
 };
@@ -75,7 +76,8 @@ const PlacedCard = ({
       className="card-filled"
       onDrag={dragEvent}
     >
-      <img src={image} />
+      {/*<img src={image} />*/}
+      {image}
     </div>
   );
 };
