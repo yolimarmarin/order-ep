@@ -59,9 +59,9 @@ const getRandomPattern = () => {
     { isEmpty: false },
   ];
   for (let index in pattern) {
-    var z = new Expression("z");
+    var z = new Expression("x");
     var eq = new Equation(z.subtract(getRandomArbitrary()).divide(getRandomArbitrary()), z.add(getRandomArbitrary()));
-    const solved = eq.solveFor('z').toString().split('/')
+    const solved = eq.solveFor('x').toString().split('/')
     const ans = solved[0] / (solved[1] ?? 1)
     pattern[index] = { ...pattern[index], img: eq.toString(), id: parseFloat(ans.toFixed(3)), isEmpty: false };
   }

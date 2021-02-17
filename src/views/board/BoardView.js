@@ -30,7 +30,7 @@ const BoardView = ({
         </div>
 
         <div className="board-spaced-between-content">
-          <div className="board-text">Pick up the right cards</div>
+          <div className="board-text">Solve the equations</div>
           <div className="board-text">The faster the better</div>
         </div>
 
@@ -50,7 +50,7 @@ const BoardView = ({
         </div>
 
         <div className="board-spaced-between-content">
-          <div className="board-text">...and drop them here to make the logo great again</div>
+          <div className="board-text">...and drop them in descending order</div>
         </div>
 
         <div className="board-cards-container">
