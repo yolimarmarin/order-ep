@@ -18,7 +18,7 @@ const EmptyCard = ({ accept = ['card', 'placed-card'], item, onDrop }) => {
   );
 };
 
-const FilledCard = ({ image, id, onMouseDown }) => {
+const FilledCard = ({ image, id }) => {
   const [{ opacity }, dragRef] = useDrag({
     item: { type: 'card', id },
     collect: (monitor) => ({
@@ -27,7 +27,7 @@ const FilledCard = ({ image, id, onMouseDown }) => {
   });
 
   return (
-    <div ref={dragRef} style={{ opacity }} className="card-filled" onMouseDown={onMouseDown}>
+    <div ref={dragRef} style={{ opacity }} className="card-filled" >
       {/*<img src={image} />*/}
       {image}
     </div>

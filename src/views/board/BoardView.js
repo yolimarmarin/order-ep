@@ -13,7 +13,6 @@ const BoardView = ({
   dragging,
   onDropRearrange,
   endRearrange,
-  onStartCount,
   count,
   name,
   restart,
@@ -43,7 +42,6 @@ const BoardView = ({
                 key={card.id}
                 image={card.img}
                 id={card.id}
-                onMouseDown={count === 0 ? onStartCount : null}
               />
             )
           )}

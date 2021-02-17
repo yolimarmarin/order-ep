@@ -36,6 +36,7 @@ const Board = ({ name }) => {
   }, [restart]);
 
   const restartGame = () => {
+    startInterval();
     setPaintEmpty(EMPTY_PATTER);
     setCount(0);
     setRestart(10);
@@ -140,7 +141,6 @@ const Board = ({ name }) => {
         dragging={dragging}
         paintFilled={paintFilled}
         paintEmpty={paintEmpty}
-        onStartCount={onStartCount}
         count={count}
         name={name}
         restart={restart}
